@@ -1,53 +1,41 @@
-<form class="form-row">
-  <div class="form-group col-md-2">
-    <label for="nombre" class="sr-only">Nombre</label>
+<form class="item">
+
 
     <!-- Two way binding -->
-    <!-- <input
-      type="text"
-      name="nombre"
-      id="nombre"
-      placeholder="Nombre"
-      class="form-control"
-      [(ngModel)]="nombreInput"
-    /> -->
-
-    <!-- Local reference -->
     <input
       type="text"
       name="nombre"
       id="nombre"
       placeholder="Nombre"
-      class="form-control"
-      #nombreInput
+      [(ngModel)]="nombreInput"
     />
-  </div>
-  <div class="form-group col-md-2">
-    <label for="apellido" class="sr-only">Apellido</label>
 
-    <!-- Two way binding -->
+    <!-- Local reference -->
     <!-- <input
+      type="text"
+      name="nombre"
+      id="nombre"
+      placeholder="Nombre"
+      #nombreInput
+    /> -->
+  
+    <!-- Two way binding -->
+    <input
       type="text"
       name="apellido"
       id="apellido"
       placeholder="Apellido"
-      class="form-control"
       [(ngModel)]="apellidoInput"
-    /> -->
+    />
 
     <!-- Local reference -->
-    <input
+    <!-- <input
       type="text"
       name="apellido"
       id="apellido"
       placeholder="Apellido"
       class="form-control"
       #apellidoInput
-    />
-  </div>
-  <div class="col">
-    <button type="submit" class="btn btn-primary" (click)="agregarPersona()">
-      Agregar
-    </button>
-  </div>
+    /> -->
+    <button type="submit" (click)="agregarPersona()">+</button>
 </form>
