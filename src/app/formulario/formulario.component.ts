@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { LoggingService } from '../LoggingService.service';
 import { Persona } from '../persona.model';
 import { PersonasService } from '../personas.service';
 
@@ -21,9 +20,13 @@ export class FormularioComponent{
   @ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   // DI (dependency injection): Angular automaticamente inyecta una instancia de la clase
-  constructor(
-    private loggingService:LoggingService,
-    private personasService: PersonasService){}
+  constructor(private personasService: PersonasService){
+    
+    // Suscripción al evento
+    this.personasService.saludar.subscribe(
+      (indice:number) => alert('El indice es: ' + indice)
+    );
+  }
 
   agregarPersona():void{
     let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
