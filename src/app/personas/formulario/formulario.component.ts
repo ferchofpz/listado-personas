@@ -16,6 +16,7 @@ export class FormularioComponent implements OnInit{
   nombreInput:string='';
   apellidoInput:string='';
   index:number;
+  modoEdicion:number;
 
   // Se recupera la referencia definida en la plantilla
   // @ViewChild('nombreInput') nombreInput: ElementRef;
@@ -37,8 +38,11 @@ export class FormularioComponent implements OnInit{
     // Se recupera el indice de la URL (ruta)
     this.index = this.route.snapshot.params['id'];
 
+    // + en typescript convierte de string a tipo entero
+    this.modoEdicion = +this.route.snapshot.queryParams['modoEdicion'];
+
     // Si el indice no es nulo estamos modificando
-    if(this.index){
+    if(this.modoEdicion != null && this.modoEdicion === 1){
       let persona: Persona = this.personasService.encontrarPersona(this.index);
       this.nombreInput = persona.nombre;
       this.apellidoInput = persona.apellido;
@@ -54,7 +58,7 @@ export class FormularioComponent implements OnInit{
     // this.loggingService.enviarMensajeAConsola("Enviamos persona: " + persona1.nombre + ' ' + persona1.apellido);
     // this.personaCreada.emit(persona1);
 
-    if(this.index){
+    if(this.modoEdicion != null && this.modoEdicion === 1){
       this.personasService.modificarPersona(this.index, persona1);
     }
     else{
