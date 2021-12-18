@@ -14,6 +14,7 @@ import { DataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { LoginGuardian } from './login/login-guardian.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { LoginService } from './login/login.service';
     HttpClientModule
   ],
   // Se adiciona este proveedor para que la instancia pueda ser utilizada en todos los componentes de la aplicacion
-  providers: [LoggingService, PersonasService, DataServices, LoginService],
+  providers: [LoggingService, PersonasService, DataServices, LoginService, LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
