@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Persona } from '../persona.model';
-import { PersonasService } from '../personas.service';
+import { Router } from '@angular/router';
+import { Persona } from '../../persona.model';
+import { PersonasService } from '../../personas.service';
 
 @Component({
   selector: 'app-formulario',
@@ -20,7 +21,7 @@ export class FormularioComponent{
   // @ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   // DI (dependency injection): Angular automaticamente inyecta una instancia de la clase
-  constructor(private personasService: PersonasService){
+  constructor(private personasService: PersonasService, private router:Router){
     
     // Suscripción al evento
     this.personasService.saludar.subscribe(
@@ -28,7 +29,7 @@ export class FormularioComponent{
     );
   }
 
-  agregarPersona():void{
+  onGuardarPersona():void{
     // Local reference
     // let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
     
@@ -38,6 +39,7 @@ export class FormularioComponent{
     // this.personaCreada.emit(persona1);
 
     this.personasService.agregarPersona(persona1);
+    this.router.navigate(["personas"]);
   }
 
 }

@@ -1,0 +1,46 @@
+<div class="box">
+  <!-- Referencia local para validacion del formulario -->
+  <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && onGuardarPersona()">
+
+
+      <!-- Two way binding -->
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Nombre"
+        [(ngModel)]="nombreInput"
+        required
+      />
+
+      <!-- Local reference -->
+      <!-- <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Nombre"
+        #nombreInput
+      /> -->
+    
+      <!-- Two way binding -->
+      <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        placeholder="Apellido"
+        [(ngModel)]="apellidoInput"
+        required
+      />
+
+      <!-- Local reference -->
+      <!-- <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        placeholder="Apellido"
+        class="form-control"
+        #apellidoInput
+      /> -->
+      <button type="submit" style="cursor: pointer;">+</button>
+  </form>
+</div>
